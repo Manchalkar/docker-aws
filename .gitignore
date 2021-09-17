@@ -9,6 +9,7 @@
 
 # dependencies
 /node_modules
+/src/common/swagger-providers
 
 # profiling files
 chrome-profiler-events*.json
