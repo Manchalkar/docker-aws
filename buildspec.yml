@@ -4,7 +4,7 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 675418481961.dkr.ecr.ap-south-1.amazonaws.com
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/x9c0g2j1
       - URI=675418481961.dkr.ecr.ap-south-1.amazonaws.com/etool-docker
       - IMAGE_REPO_NAME=etools-docker
       - echo Prebuild completed...
@@ -13,10 +13,10 @@ phases:
       - echo Build started on `date`
       - echo Building Docker test image...
       - echo Building the Docker image...
-      - docker build -t etool-dockerss .
-      - docker tag etool-docker:latest 675418481961.dkr.ecr.ap-south-1.amazonaws.com/etool-docker:latest
+      - docker build -t test-doc .
+      - docker tag test-doc:latest public.ecr.aws/x9c0g2j1/test-doc:latest
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push 675418481961.dkr.ecr.ap-south-1.amazonaws.com/etool-docker:latest
+      - docker push public.ecr.aws/x9c0g2j1/test-doc:latest
