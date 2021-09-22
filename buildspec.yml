@@ -1,0 +1,25 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - $(aws ecr get-login-password --region ap-south-1)
+      - URI=675418481961.dkr.ecr.ap-south-1.amazonaws.com/etool-docker
+      - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | aws -F":" '{print $2}')
+      - IMAGE_REPO_NAME=etools-docker
+      - echo Prebuild completed...
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building Docker test image...
+      - echo Building the Docker image...
+      - docker build -t etool-docker .
+      - docker tag etool-docker:latest 675418481961.dkr.ecr.ap-south-1.amazonaws.com/etool-docker:latest
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push 675418481961.dkr.ecr.ap-south-1.amazonaws.com/etool-docker:latest
