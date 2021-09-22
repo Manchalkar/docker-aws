@@ -4,7 +4,7 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - $(aws ecr get-login-password --region ap-south-1)
+      - aws ecr get-login-password --region ap-south-1
       - URI=675418481961.dkr.ecr.ap-south-1.amazonaws.com/etool-docker
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | aws -F":" '{print $2}')
       - IMAGE_REPO_NAME=etools-docker
