@@ -1,0 +1,15 @@
+{
+    "API_URL":"https://localhost:44352",
+    "SWAGGER_PATH": "src/swagger/providers/",
+    "SWAGGER_SUB_PATH": "/swagger/v1/swagger.json",
+    "calendar_key": "0540678778-fcs-1578950738",
+    "default_logo": "assets/images/default-logo-lexicon.png",
+    "intervalTime": 60000,
+    "timerSyncInterval": 15000,
+    "logRocketEnabled": "false",
+    "logRocketAppId": "gh04ik/lexicon-uat",
+    "environment": "LOCAL",
+    "webJobToken": "8xab7AQXLafJ2@Ld5kU4wT9T3M3bh5sGkqU5kYX$wB9tu#UEy^oZZN4&d@P*htvh",
+    "sessionTimeout": 15,
+    "messageCenterInterval": 10
+  }

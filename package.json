@@ -6,6 +6,7 @@
     "start": "npm run server",
     "swagger-gen": "node swagger/generate.js",
     "server": "npm run swagger-gen && node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng serve --open --progress --watch --port 3002 --ssl",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
