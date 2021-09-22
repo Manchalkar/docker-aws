@@ -13,7 +13,7 @@ phases:
       - echo Build started on `date`
       - echo Building Docker test image...
       - echo Building the Docker image...
-      - docker build -t etool-docker .
+      - docker build -t etool-dockerss .
       - docker tag etool-docker:latest 675418481961.dkr.ecr.ap-south-1.amazonaws.com/etool-docker:latest
   post_build:
     commands:
